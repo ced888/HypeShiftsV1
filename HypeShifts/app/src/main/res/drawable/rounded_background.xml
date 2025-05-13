@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description:
+Shape for containers.
+
+Author: Sergei Borja
+Date Created: 2023-10-30
+-->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="12dp" />
+    <solid android:color="@color/white" />
+</shape>

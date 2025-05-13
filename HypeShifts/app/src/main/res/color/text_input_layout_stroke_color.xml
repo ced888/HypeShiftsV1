@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description:
+Color State for when the text input is focused and unfocused.
+
+Author: Sergei Borja
+Date Created: 2023-10-30
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Focused state -->
+    <item android:color="@color/green" android:state_focused="true" />
+    <!-- Default/unfocused state -->
+    <item android:color="@color/black" />
+</selector>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description:
+A cell to display the name of an employee and the type of employee.
+
+Author: Sergei Borja
+Date Created: 2023-11-17
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/off_white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="15dp">
+
+    <!--Profile Picture-->
+    <ImageView
+        android:id="@+id/staffProfileImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/circle_mask"
+        android:backgroundTint="@color/black"
+        android:contentDescription="@string/profilePicDescription"
+        android:padding="4dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/default_profile_picture"
+        app:tint="@color/off_white" />
+
+    <!--Text Layout-->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!--Employee Name Text-->
+        <TextView
+            android:id="@+id/nameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textSize="20sp" />
+
+        <!--Training Placeholder Layout-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_background"
+            android:backgroundTint="@color/green"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!--Training Placeholder Text-->
+            <TextView
+                android:id="@+id/trainingPlaceHolder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="10dp"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:ignore="SmallSp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

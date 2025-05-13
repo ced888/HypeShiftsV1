@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description:
+The strings used in the app.
+
+Author: Cedric De Leon, Keegan Vanstone, Nicholas Westly, Osman Osman, Sergei Borja
+-->
+<resources>
+    <!--General Strings-->
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="save">Save</string>
+    <string name="remove">Remove</string>
+    <string name="reset">Reset</string>
+    <string name="appName">HypeShifts</string>
+
+    <!--Image Description Strings-->
+    <string name="profilePicDescription">Profile Picture</string>
+    <string name="previousDescription">Previous Arrow</string>
+    <string name="nextDescription">Next Arrow</string>
+    <string name="addDescription">Plus Icon</string>
+    <string name="editDescription">Edit Icon</string>
+
+    <!--Title Strings-->
+    <string name="personalDetailsTitle">Personal Details:</string>
+    <string name="contactDetailsTitle">Contact Details:</string>
+    <string name="workDetailsTitle">Work Details:</string>
+    <string name="availabilityTitle">Availability:</string>
+    <string name="upcomingDayOffTitle">Upcoming Day Offs:</string>
+    <string name="upcomingShiftsTitle">Upcoming Shifts:</string>
+    <string name="employeeAvailableTitle">Employees Available for:</string>
+    <string name="editingAvailabilityTitle">Editing Availability for:</string>
+    <string name="editAvailabilityTitle">Edit Availability:</string>
+    <string name="addDayOffTitle">Adding Day Off for:</string>
+    <string name="editDayOffTitle">Editing Day Off for:</string>
+    <string name="enterDayOffTitle">Enter Day Off Details:</string>
+    <string name="addNewEmployeeTitle">Add a New Employee</string>
+    <string name="editEmployeeTitle">Editing Profile of:</string>
+    <string name="changePasswordTitle">Change Password:</string>
+
+    <!--Label Strings-->
+    <string name="currentPasswordLabel">Enter Current Password:</string>
+    <string name="newPasswordLabel">Enter New Password:</string>
+    <string name="newPasswordAgainLabel">Confirm New Password:</string>
+    <string name="minEightChar">(Minimum 8 characters)</string>
+    <string name="firstNameLabel">First Name:</string>
+    <string name="lastNameLabel">Last Name:</string>
+    <string name="fullNameLabel">Date:</string>
+    <string name="genderLabel">Gender:</string>
+    <string name="dateOfBirthLabel">Date of Birth:</string>
+    <string name="addressLabel">Address:</string>
+    <string name="phoneLabel">Phone:</string>
+    <string name="homePhoneLabel">Home Phone:</string>
+    <string name="mobilePhoneLabel">Mobile Phone:</string>
+    <string name="emailLabel">E-mail:</string>
+    <string name="contactPreferenceLabel">Contact Preference:</string>
+    <string name="storePositionLabel">Store Position:</string>
+    <string name="startDateLabel">Start Date:</string>
+    <string name="employeeIDLabel">Employee ID:</string>
+    <string name="qualificationLabel">Qualifications:</string>
+    <string name="openingLabel">Opening:</string>
+    <string name="closingLabel">Closing:</string>
+    <string name="profilePictureLabel">Profile Picture:</string>
+    <string name="dateLabel">Date:</string>
+    <string name="reasonLabel">Reason:</string>
+    <string name="fullShiftLabel">Full Shifts:</string>
+    <string name="morningShiftLabel">Morning Shifts:</string>
+    <string name="afternoonShiftLabel">Afternoon Shifts:</string>
+    <string name="eveningShiftLabel">Evening Shifts:</string>
+    <string name="minTwoLabel">(Minimum of 2)</string>
+    <string name="minThreeLabel">(Minimum of 3)</string>
+    <string name="availableEmployeesLabel">Available Employees:</string>
+    <string name="sunLabel">Sunday:</string>
+    <string name="monLabel">Monday:</string>
+    <string name="tueLabel">Tuesday:</string>
+    <string name="wedLabel">Wednesday:</string>
+    <string name="thuLabel">Thursday:</string>
+    <string name="friLabel">Friday:</string>
+    <string name="satLabel">Saturday:</string>
+
+
+    <!--Hint Strings-->
+    <string name="currentPasswordHint">Current Password</string>
+    <string name="newPasswordHint">New Password</string>
+    <string name="firstNameHint">First Name</string>
+    <string name="lastNameHint">Last Name</string>
+    <string name="addressHint">123 Main St</string>
+    <string name="phoneNumberHint">(000) 000–0000</string>
+    <string name="emailHint">example@domain.com</string>
+    <string name="yearHint">YYYY</string>
+    <string name="monthHint">MM</string>
+    <string name="dayHint">DD</string>
+    <string name="reasonHint">Enter Reason Here</string>
+
+    <!--Bottom Navigation Strings-->
+    <string name="btmNavHome">Home</string>
+    <string name="btmNavCalendar">Calendar</string>
+    <string name="btmNavStaffList">Staff List</string>
+
+    <!--Calendar Strings-->
+    <string name="weekCalendar">Week</string>
+    <string name="monthCalendar">Month</string>
+
+    <!--Days of the Week Strings-->
+    <string name="sunHalf">Sun</string>
+    <string name="monHalf">Mon</string>
+    <string name="tueHalf">Tue</string>
+    <string name="wedHalf">Wed</string>
+    <string name="thuHalf">Thu</string>
+    <string name="friHalf">Fri</string>
+    <string name="satHalf">Sat</string>
+
+    <!--Shift Strings-->
+    <string name="fullShiftTime">(10:00 AM - 6:00 PM)</string>
+    <string name="morningShiftTime">(8:00 AM - 12:00 PM)</string>
+    <string name="afternoonShiftTime">(12:00 AM - 4:00 PM)</string>
+    <string name="eveningShiftTime">(4:00 AM - 8:00 PM)</string>
+    <string name="fullShift">Full</string>
+    <string name="morningShift">Morning</string>
+    <string name="afternoonShift">Afternoon</string>
+    <string name="eveningShift">Evening</string>
+
+    <!--Login Page Strings-->
+    <string name="logo">Logo</string>
+    <string name="login">Login</string>
+    <string name="usernameInput">Username:</string>
+    <string name="passwordInput">Password:</string>
+    <string name="noAccount">Don\'t have an account or forgot password?</string>
+    <string name="contactManager">Contact your manager for sign in details.</string>
+
+    <!--Home Page Strings-->
+    <string name="welcomeUsers">Welcome back,</string>
+    <string name="todayIs">Today is</string>
+    <string name="currentShifts">Current Shifts:</string>
+    <string name="noShifts">No Shifts at the Moment</string>
+    <string name="todaysShift">Today\'s Shift</string>
+    <string name="createShifts">Create Shift</string>
+    <string name="sendAnnouncement">Send Announcement</string>
+
+    <!-- Add/Edit Shifts Strings-->
+    <string name="addEditShiftEmployAvail">Employees Available for:</string>
+
+    <!-- Add/Edit Day Off Strings-->
+    <string name="deleteDayOff">Delete Day Off</string>
+
+    <!-- Warning and Button Strings -->
+    <string name="noScheduledShifts">No Scheduled Shifts</string>
+    <string name="noScheduledEmployees">No Employees Available</string>
+    <string name="noFullShifts">No Shifts Full Shifts Created</string>
+    <string name="noMorningShifts">No Shifts Morning Shifts Created</string>
+    <string name="noAfternoonShifts">No Shifts Afternoon Shifts Created</string>
+    <string name="noEveningShifts">No Shifts Evening Shifts Created</string>
+    <string name="noUpcomingDayOffs">No Upcoming Day Offs</string>
+    <string name="noUpcomingShifts">No Upcoming Shifts</string>
+    <string name="deleteEmployeeWarning">Are you sure you want to delete this employee?</string>
+
+    <string name="messageButton">Message</string>
+    <string name="changePasswordButton">Change Password</string>
+    <string name="logoutButton">Logout</string>
+    <string name="editProfileButton">Edit Profile</string>
+    <string name="addDayOffButton">Add Day Off</string>
+    <string name="editAvailabilityButton">Edit Availability</string>
+    <string name="deleteEmployeeButton">Delete Employee</string>
+    <string name="seeMoreDayOffsButton">See More Day Offs</string>
+    <string name="seeMoreShiftsButton">See More Shifts</string>
+    <string name="noEmployeeStaffList">There are no Employees.\n You can start adding employees by using the “+” button below.</string>
+
+    <!-- Array of Strings-->
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="roles_array">
+        <item>Staff</item>
+        <item>Manager</item>
+        <item>Owner</item>
+    </string-array>
+
+    <string-array name="contact_preference_array">
+        <item>E-mail</item>
+        <item>Home Phone</item>
+        <item>Mobile Phone</item>
+    </string-array>
+
+    <string-array name="qualifications_array">
+        <item>Unqualified</item>
+        <item>Qualified</item>
+    </string-array>
+
+    <string name="title_activity_edit_employee_profile">EditEmployeeProfileActivity</string>
+    <string name="title_activity_profile_edit">ProfileEditActivity</string>
+
+</resources>

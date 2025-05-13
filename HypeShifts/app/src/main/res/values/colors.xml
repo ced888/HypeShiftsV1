@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description:
+The colors used in the app.
+
+Author: Sergei Borja
+-->
+<resources>
+    <color name="darkerBlack">#151515</color>
+    <color name="black">#232323</color>
+    <color name="off_white">#E0DED9</color>
+    <color name="white">#E9E8E4</color>
+    <color name="green">#00C49A</color>
+    <color name="lightGreen">#80e2cd</color>
+    <color name="red">#ED4040</color>
+    <color name="grey">#706F6D</color>
+</resources>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description:
+The default page when the app opens and displays important features that the
+user wants quick access to.
+
+Author: Keegan Vanstone, Sergei Borja
+Date Created: 2023-10-02
+-->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/off_white">
+
+    <!--Top Welcome Bar-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        tools:context=".HomePage">
+
+        <!--Welcome Bar Text Area-->
+        <LinearLayout
+            android:id="@+id/layoutWelcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_background"
+            android:backgroundTint="@color/black"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp">
+
+            <!--Left Column Text Layout-->
+            <LinearLayout
+                android:id="@+id/layoutWelcomeTxt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <!--Welcome Text-->
+                <TextView
+                    android:id="@+id/txtWelcome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="@string/welcomeUsers"
+                    android:textColor="@color/off_white"
+                    android:textSize="12sp" />
+
+                <!--Name Text-->
+                <TextView
+                    android:id="@+id/txtWelcomeUserName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/green"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!--Welcome Bar Profile Image-->
+            <ImageView
+                android:id="@+id/imgWelcomeProfilePic"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:background="@drawable/circle_mask"
+                android:contentDescription="@string/profilePicDescription"
+                android:padding="4dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/default_profile_picture"
+                app:tint="@color/black" />
+
+        </LinearLayout>
+
+        <!--Current Date and Day-->
+        <LinearLayout
+            android:id="@+id/layoutHomePageDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:orientation="vertical">
+
+            <!--Today Is Text-->
+            <TextView
+                android:id="@+id/txtTodayIs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="@string/todayIs"
+                android:textSize="12sp" />
+
+            <!--Current Date-->
+            <TextView
+                android:id="@+id/txtDateHomePage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <!--Current Day-->
+            <TextView
+                android:id="@+id/txtDayHomePage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <!--Current Shifts Layout-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--Current Shifts Text-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="@string/currentShifts"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <!--Shifts Layout-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_background"
+                android:backgroundTint="@color/black"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp">
+
+                <!--Time of Day Text-->
+                <TextView
+                    android:id="@+id/shiftsIndicatorTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/off_white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <!--No Shift Text-->
+                <TextView
+                    android:id="@+id/noShiftTxtHomePage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_background"
+                    android:backgroundTint="@color/off_white"
+                    android:paddingVertical="20dp"
+                    android:text="@string/noShifts"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <!--Shifts Recycler View-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/currentShiftsHomePage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <!--Change Password Button-->
+            <Button
+                android:id="@+id/btnChangePassword"
+                style="@style/ThemeOverlay.App.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/black"
+                android:enabled="true"
+                android:text="@string/changePasswordButton"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:ignore="VisualLintButtonSize,TextContrastCheck" />
+
+            <!--Logout Button-->
+            <Button
+                android:id="@+id/btnLogout"
+                style="@style/ThemeOverlay.App.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="@color/black"
+                android:enabled="true"
+                android:text="@string/logoutButton"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:ignore="VisualLintButtonSize,TextContrastCheck" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

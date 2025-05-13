@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description:
+Be able to view the different details about an employee.
+
+Author: Osman Osman, Sergei Borja
+Date Created: 2023-10-11
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/off_white"
+    android:orientation="vertical"
+    tools:context=".EmployeeProfileActivity">
+
+    <!-- Top App Bar -->
+    <com.google.android.material.appbar.AppBarLayout
+        style="@style/Widget.App.Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <!--Menu-->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBarEmployee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:navigationIcon="@drawable/baseline_arrow_back_24" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!--Scroll Container-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!--Activity Container-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--Profile Image-->
+            <ImageView
+                android:id="@+id/profileImageDetailed"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle_mask"
+                android:backgroundTint="@color/black"
+                android:contentDescription="@string/profilePicDescription"
+                android:padding="10dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/default_profile_picture"
+                app:tint="@color/off_white" />
+
+            <!--Employee Name-->
+            <TextView
+                android:id="@+id/nameTvDetailed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="20dp"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!--Divider-->
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/black" />
+
+            <!--Buttons Container-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!--Column Layout-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <!--Message Button-->
+                    <Button
+                        android:id="@+id/messageBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/black"
+                        android:text="@string/messageButton"
+                        android:textColor="@color/off_white"
+                        android:textStyle="bold"
+                        tools:ignore="ButtonStyle" />
+
+                    <!--Edit Button-->
+                    <Button
+                        android:id="@+id/editBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/black"
+                        android:text="@string/editProfileButton"
+                        android:textColor="@color/off_white"
+                        android:textStyle="bold"
+                        tools:ignore="ButtonStyle" />
+
+                </LinearLayout>
+
+                <!--Add Day Off Button Row-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:orientation="horizontal">
+
+                    <!--Add Day Off Button-->
+                    <Button
+                        android:id="@+id/addDayOffBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/black"
+                        android:text="@string/addDayOffButton"
+                        android:textColor="@color/off_white"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <!--Edit Availability Button Row-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:orientation="horizontal">
+
+                    <!--Edit Availability Button-->
+                    <Button
+                        android:id="@+id/editAvailabilityBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/black"
+                        android:text="@string/editAvailabilityButton"
+                        android:textColor="@color/off_white"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--Employee Details Container-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="vertical">
+
+                <!--Personal Detail Container-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/rounded_background"
+                    android:backgroundTint="@color/black"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp">
+
+                    <!--Personal Details Title-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/personalDetailsTitle"
+                        android:textColor="@color/green"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Full Name-->
+                    <TextView
+                        android:id="@+id/fullNameTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fullNameLabel"
+                        android:textColor="@color/off_white" />
+
+                    <!--Gender-->
+                    <TextView
+                        android:id="@+id/genderTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/genderLabel"
+                        android:textColor="@color/off_white" />
+
+                    <!--Date of Birth-->
+                    <TextView
+                        android:id="@+id/dobTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dateOfBirthLabel"
+                        android:textColor="@color/off_white" />
+
+                    <!--Address-->
+                    <TextView
+                        android:id="@+id/addressTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/addressLabel"
+                        android:textColor="@color/off_white" />
+                </LinearLayout>
+
+                <!--Contact Detail Container-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/rounded_background"
+                    android:backgroundTint="@color/black"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp">
+
+                    <!--Contact Detail Title-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/contactDetailsTitle"
+                        android:textColor="@color/green"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Phone-->
+                    <TextView
+                        android:id="@+id/phoneTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/phoneLabel"
+                        android:textColor="@color/off_white" />
+
+                    <!--Home Phone-->
+                    <TextView
+                        android:id="@+id/homeNumTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="16dp"
+                        android:text="@string/homePhoneLabel"
+                        android:textColor="@color/off_white" />
+
+                    <!--Mobile Number-->
+                    <TextView
+                        android:id="@+id/mobileNumTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="16dp"
+                        android:text="@string/mobilePhoneLabel"
+                        android:textColor="@color/off_white" />
+
+                    <!--E-mail-->
+                    <TextView
+                        android:id="@+id/emailTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/emailLabel"
+                        android:textColor="@color/off_white" />
+
+                    <!--E-mail-->
+                    <TextView
+                        android:id="@+id/contactPrefTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/contactPreferenceLabel"
+                        android:textColor="@color/off_white" />
+
+                </LinearLayout>
+
+                <!--Work Detail Container-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/rounded_background"
+                    android:backgroundTint="@color/black"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp">
+
+                    <!--Work Detail Title-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/workDetailsTitle"
+                        android:textColor="@color/green"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Store Position-->
+                    <TextView
+                        android:id="@+id/positionTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/storePositionLabel"
+                        android:textColor="@color/off_white" />
+
+                    <!--Start Date-->
+                    <TextView
+                        android:id="@+id/startTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/startDateLabel"
+                        android:textColor="@color/off_white" />
+
+                    <!--Employee ID-->
+                    <TextView
+                        android:id="@+id/employeeIdTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/employeeIDLabel"
+                        android:textColor="@color/off_white" />
+
+                    <!--Qualifications-->
+                    <TextView
+                        android:id="@+id/qualifyTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/qualificationLabel"
+                        android:textColor="@color/off_white" />
+
+                    <!--Opening Qualifications-->
+                    <TextView
+                        android:id="@+id/openQualTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="16dp"
+                        android:text="@string/openingLabel"
+                        android:textColor="@color/off_white" />
+
+                    <!--Closing Qualifications-->
+                    <TextView
+                        android:id="@+id/closeQualTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="16dp"
+                        android:text="@string/closingLabel"
+                        android:textColor="@color/off_white" />
+
+                </LinearLayout>
+
+                <!--Availability Container-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/rounded_background"
+                    android:backgroundTint="@color/black"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp">
+
+                    <!--Availability Title-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/availabilityTitle"
+                        android:textColor="@color/green"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Sunday-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
+                        android:text="@string/sunLabel"
+                        android:textColor="@color/off_white" />
+
+                    <!--Sunday Full-->
+                    <Button
+                        android:id="@+id/btnSunFull"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:backgroundTint="@color/grey"
+                        android:includeFontPadding="false"
+                        android:text="@string/fullShift"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <!--Monday-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/monLabel"
+                        android:textColor="@color/off_white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Monday Morning-->
+                    <Button
+                        android:id="@+id/btnMonMor"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:backgroundTint="@color/grey"
+                        android:includeFontPadding="false"
+                        android:text="@string/morningShift"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <!--Monday Afternoon-->
+                    <Button
+                        android:id="@+id/btnMonAft"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:backgroundTint="@color/grey"
+                        android:includeFontPadding="false"
+                        android:text="@string/afternoonShift"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <!--Monday Evening-->
+                    <Button
+                        android:id="@+id/btnMonEve"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:backgroundTint="@color/grey"
+                        android:includeFontPadding="false"
+                        android:text="@string/eveningShift"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <!--Tuesday-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/tueLabel"
+                        android:textColor="@color/off_white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Tuesday Morning-->
+                    <Button
+                        android:id="@+id/btnTueMor"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:backgroundTint="@color/grey"
+                        android:includeFontPadding="false"
+                        android:text="@string/morningShift"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <!--Tuesday Afternoon-->
+                    <Button
+                        android:id="@+id/btnTueAft"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:backgroundTint="@color/grey"
+                        android:includeFontPadding="false"
+                        android:text="@string/afternoonShift"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <!--Tuesday Evening-->
+                    <Button
+                        android:id="@+id/btnTueEve"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:backgroundTint="@color/grey"
+                        android:includeFontPadding="false"
+                        android:text="@string/eveningShift"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <!--Wednesday-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/wedLabel"
+                        android:textColor="@color/off_white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Wednesday Morning-->
+                    <Button
+                        android:id="@+id/btnWedMor"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:backgroundTint="@color/grey"
+                        android:includeFontPadding="false"
+                        android:text="@string/morningShift"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <!--Wednesday Afternoon-->
+                    <Button
+                        android:id="@+id/btnWedAft"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:backgroundTint="@color/grey"
+                        android:includeFontPadding="false"
+                        android:text="@string/afternoonShift"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <!--Wednesday Evening-->
+                    <Button
+                        android:id="@+id/btnWedEve"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:backgroundTint="@color/grey"
+                        android:includeFontPadding="false"
+                        android:text="@string/eveningShift"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <!--Thursday-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/thuLabel"
+                        android:textColor="@color/off_white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Thursday Morning-->
+                    <Button
+                        android:id="@+id/btnThuMor"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:backgroundTint="@color/grey"
+                        android:includeFontPadding="false"
+                        android:text="@string/morningShift"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <!--Thursday Afternoon-->
+
+                    <Button
+                        android:id="@+id/btnThuAft"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:backgroundTint="@color/grey"
+                        android:includeFontPadding="false"
+                        android:text="@string/afternoonShift"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <!--Thursday Evening-->
+                    <Button
+                        android:id="@+id/btnThuEve"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:backgroundTint="@color/grey"
+                        android:includeFontPadding="false"
+                        android:text="@string/eveningShift"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <!--Friday-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/friLabel"
+                        android:textColor="@color/off_white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Friday Morning-->
+                    <Button
+                        android:id="@+id/btnFriMor"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:backgroundTint="@color/grey"
+                        android:includeFontPadding="false"
+                        android:text="@string/morningShift"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <!--Friday Afternoon-->
+                    <Button
+                        android:id="@+id/btnFriAft"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:backgroundTint="@color/grey"
+                        android:includeFontPadding="false"
+                        android:text="@string/afternoonShift"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <!--Friday Evening-->
+                    <Button
+                        android:id="@+id/btnFriEve"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:backgroundTint="@color/grey"
+                        android:includeFontPadding="false"
+                        android:text="@string/eveningShift"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <!--Saturday-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/satLabel"
+                        android:textColor="@color/off_white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Saturday Full-->
+                    <Button
+                        android:id="@+id/btnSatFull"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:backgroundTint="@color/grey"
+                        android:includeFontPadding="false"
+                        android:text="@string/fullShift"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <!--Day Offs Container-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/rounded_background"
+                    android:backgroundTint="@color/black"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp">
+
+                    <!--Upcoming Day Offs Title-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/upcomingDayOffTitle"
+                        android:textColor="@color/green"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Upcoming Day Offs Recycler View-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/upcomingDayOffs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none" />
+
+                    <!--See More Day Offs Button-->
+                    <Button
+                        android:id="@+id/seeMoreDayOffsBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/off_white"
+                        android:includeFontPadding="false"
+                        android:text="@string/seeMoreDayOffsButton"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:ignore="InefficientWeight" />
+
+                    <!--No Day Off Layout-->
+                    <LinearLayout
+                        android:id="@+id/noDayOffsLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="5dp"
+                        android:background="@drawable/rounded_background"
+                        android:backgroundTint="@color/off_white"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="15dp"
+                        android:paddingVertical="10dp"
+                        tools:ignore="UselessParent">
+
+                        <!--No Day Off Text-->
+                        <TextView
+                            android:id="@+id/noDayOffsTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:text="@string/noUpcomingDayOffs"
+                            android:textAlignment="center"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--Upcoming Shifts Container-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/rounded_background"
+                    android:backgroundTint="@color/black"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp">
+
+                    <!--Upcoming Shifts Title-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/upcomingShiftsTitle"
+                        android:textColor="@color/green"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Upcoming Shifts Recycler View-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/upcomingShifts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <!--See More Shifts Button-->
+                    <Button
+                        android:id="@+id/seeMoreShiftsBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/off_white"
+                        android:includeFontPadding="false"
+                        android:text="@string/seeMoreShiftsButton"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:ignore="InefficientWeight" />
+
+                    <!--No Shifts Layout-->
+                    <LinearLayout
+                        android:id="@+id/noShiftsLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="5dp"
+                        android:background="@drawable/rounded_background"
+                        android:backgroundTint="@color/off_white"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="15dp"
+                        android:paddingVertical="10dp"
+                        tools:ignore="UselessParent">
+
+                        <!--No Shifts Text-->
+                        <TextView
+                            android:id="@+id/noShiftsTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:text="@string/noUpcomingShifts"
+                            android:textAlignment="center"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--Delete Employee Button Row-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!--Delete Employee Button-->
+                    <Button
+                        android:id="@+id/btnDeleteEmployeePage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/red"
+                        android:text="@string/deleteEmployeeButton"
+                        android:textColor="@color/off_white"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Description:
+The various Noto Sans fonts.
+
+Author: Sergei Borja
+Date Created: 2023-10-30
+-->
+
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Regular style -->
+    <font
+        android:font="@font/noto_sans_thin"
+        android:fontStyle="normal"
+        android:fontWeight="100" />
+
+    <font
+        android:font="@font/noto_sans_extralight"
+        android:fontStyle="normal"
+        android:fontWeight="200" />
+
+    <font
+        android:font="@font/noto_sans_light"
+        android:fontStyle="normal"
+        android:fontWeight="300" />
+
+    <font
+        android:font="@font/noto_sans_regular"
+        android:fontStyle="normal"
+        android:fontWeight="400" />
+
+    <font
+        android:font="@font/noto_sans_medium"
+        android:fontStyle="normal"
+        android:fontWeight="500" />
+
+    <!-- Italic style -->
+    <font
+        android:font="@font/noto_sans_thinitalic"
+        android:fontStyle="italic"
+        android:fontWeight="100" />
+
+    <font
+        android:font="@font/noto_sans_extralightitalic"
+        android:fontStyle="italic"
+        android:fontWeight="200" />
+
+    <font
+        android:font="@font/noto_sans_lightitalic"
+        android:fontStyle="italic"
+        android:fontWeight="300" />
+
+    <font
+        android:font="@font/noto_sans_italic"
+        android:fontStyle="italic"
+        android:fontWeight="400" />
+
+    <font
+        android:font="@font/noto_sans_mediumitalic"
+        android:fontStyle="italic"
+        android:fontWeight="500" />
+
+    <!-- Bold style -->
+    <font
+        android:font="@font/noto_sans_semibold"
+        android:fontStyle="normal"
+        android:fontWeight="600" />
+
+    <font
+        android:font="@font/noto_sans_bold"
+        android:fontStyle="normal"
+        android:fontWeight="700" />
+
+    <font
+        android:font="@font/noto_sans_extrabold"
+        android:fontStyle="normal"
+        android:fontWeight="800" />
+
+    <font
+        android:font="@font/noto_sans_black"
+        android:fontStyle="normal"
+        android:fontWeight="900" />
+
+    <!-- Bold Italic style -->
+    <font
+        android:font="@font/noto_sans_semibolditalic"
+        android:fontStyle="italic"
+        android:fontWeight="600" />
+
+    <font
+        android:font="@font/noto_sans_bolditalic"
+        android:fontStyle="italic"
+        android:fontWeight="700" />
+
+    <font
+        android:font="@font/noto_sans_extrabolditalic"
+        android:fontStyle="italic"
+        android:fontWeight="800" />
+
+    <font
+        android:font="@font/noto_sans_blackitalic"
+        android:fontStyle="italic"
+        android:fontWeight="900" />
+
+</font-family>

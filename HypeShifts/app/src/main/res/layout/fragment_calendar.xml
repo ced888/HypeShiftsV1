@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description:
+Displays the calendar in month view by default and has the option to switch to
+list view and shows the staff that is working that day.
+
+Author: Cedric De Leon, Nicholas Westly, Sergei Borja
+Date Create: 2023-10-15
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/off_white"
+    android:orientation="vertical"
+    tools:context=".EmployeeProfileActivity">
+
+    <!--Top App Bar-->
+    <com.google.android.material.appbar.AppBarLayout
+        style="@style/Widget.App.Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <!--Menu-->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:title="Calendar" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!--Activity Container-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!--View Switch Container-->
+        <LinearLayout
+            android:id="@+id/btnView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_background"
+            android:backgroundTint="@color/black"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="7dp">
+
+            <!--Week Text-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/off_white"
+                android:text="@string/weekCalendar"
+                android:textColor="@color/off_white"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!--Month Text-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/rounded_background"
+                android:backgroundTint="@color/off_white"
+                android:paddingHorizontal="5dp"
+                android:text="@string/monthCalendar"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!--Divider-->
+        <View
+            android:id="@+id/dividerTop"
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:layout_below="@+id/btnView"
+            android:background="@color/black" />
+
+        <!--Month Row Container-->
+        <LinearLayout
+            android:id="@+id/monthNavigationLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dividerTop"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!--Previous Week Button-->
+            <ImageView
+                android:id="@+id/btnPreviousMonth"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="@string/previousDescription"
+                android:src="@drawable/baseline_arrow_back_24" />
+
+            <!--Current Month and Year-->
+            <TextView
+                android:id="@+id/txtMonthYearTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!--Next Week Button-->
+            <ImageView
+                android:id="@+id/btnNextMonth"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="@string/nextDescription"
+                android:src="@drawable/baseline_arrow_forward_24" />
+        </LinearLayout>
+
+        <!--Days of the Week-->
+        <LinearLayout
+            android:id="@+id/daysOfWeek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/monthNavigationLayout"
+            android:layout_marginHorizontal="20dp"
+            android:orientation="horizontal">
+
+            <!--Sunday-->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/sunHalf"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <!--Monday-->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/monHalf"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <!--Tuesday-->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/tueHalf"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <!--Wednesday-->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/wedHalf"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <!--Thursday-->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/thuHalf"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <!--Friday-->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/friHalf"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <!--Saturday-->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/satHalf"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!--Calendar Numbers-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/calendarRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/daysOfWeek"
+            android:layout_marginHorizontal="20dp" />
+
+        <!--Divider-->
+        <View
+            android:id="@+id/dividerBot"
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:layout_below="@+id/calendarRecyclerView"
+            android:background="@color/black" />
+
+        <!--Employee Shifts Scroll View-->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dividerBot"
+            android:layout_marginHorizontal="20dp"
+            android:scrollbars="none">
+
+            <!--Shifts Container-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--Current Date Text-->
+                <TextView
+                    android:id="@+id/txtCurrentDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="15dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <!--Weekend-->
+
+                <!--Weekend Container (Visibility Default = "gone")-->
+                <LinearLayout
+                    android:id="@+id/layoutWeekendShiftsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtCurrentDay"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <!--Full Shifts Text-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="@string/fullShiftLabel"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Full Shifts Time-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:includeFontPadding="false"
+                        android:text="@string/fullShiftTime" />
+
+                    <!--Full Shifts List-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/fullShiftList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none" />
+
+                    <!--No Full Shifts Text-->
+                    <TextView
+                        android:id="@+id/noFullShiftTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_background"
+                        android:backgroundTint="@color/black"
+                        android:paddingVertical="20dp"
+                        android:text="@string/noFullShifts"
+                        android:textAlignment="center"
+                        android:textColor="@color/off_white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <!--End of Weekend Container-->
+
+                <!--Weekday-->
+
+                <!--Weekday Container (Visibility Default = "visible")-->
+                <LinearLayout
+                    android:id="@+id/layoutWeekdayShiftsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtCurrentDay"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <!--Morning Shifts Text-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="@string/morningShiftLabel"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Morning Shifts Time-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:includeFontPadding="false"
+                        android:text="@string/morningShiftTime" />
+
+                    <!--Morning Shifts List-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/morningShiftList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <!--No Morning Shifts Text-->
+                    <TextView
+                        android:id="@+id/noMorningShiftTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_background"
+                        android:backgroundTint="@color/black"
+                        android:paddingVertical="20dp"
+                        android:text="@string/noMorningShifts"
+                        android:textAlignment="center"
+                        android:textColor="@color/off_white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Afternoon Shifts Text-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:includeFontPadding="false"
+                        android:text="@string/afternoonShiftLabel"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Afternoon Shifts Time-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:includeFontPadding="false"
+                        android:text="@string/afternoonShiftTime" />
+
+                    <!--Afternoon Shifts List-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/afternoonShiftList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none" />
+
+                    <!--No Afternoon Shifts Text-->
+                    <TextView
+                        android:id="@+id/noAfternoonShiftTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_background"
+                        android:backgroundTint="@color/black"
+                        android:paddingVertical="20dp"
+                        android:text="@string/noAfternoonShifts"
+                        android:textAlignment="center"
+                        android:textColor="@color/off_white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Evening Shifts Text-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:includeFontPadding="false"
+                        android:text="@string/eveningShiftLabel"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Evening Shifts Time-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:includeFontPadding="false"
+                        android:text="@string/eveningShiftTime" />
+
+                    <!--Evening Shifts List-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/eveningShiftList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <!--No Evening Shifts Text-->
+                    <TextView
+                        android:id="@+id/noEveningShiftTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_background"
+                        android:backgroundTint="@color/black"
+                        android:paddingVertical="20dp"
+                        android:text="@string/noEveningShifts"
+                        android:textAlignment="center"
+                        android:textColor="@color/off_white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!--End of Weekday Container-->
+            </RelativeLayout>
+        </ScrollView>
+
+        <!--Create Shifts Button-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnAddShifts"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:visibility="visible"
+            app:cardBackgroundColor="@color/green"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="0dp">
+
+            <!--Add Shifts Icon-->
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"
+                android:contentDescription="@string/addDescription"
+                android:src="@drawable/plus_vector"
+                app:tint="@color/off_white" />
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</LinearLayout>

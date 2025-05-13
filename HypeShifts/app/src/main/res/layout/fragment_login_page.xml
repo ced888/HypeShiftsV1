@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description:
+The default page when the app opens and displays important features that the
+user wants quick access to.
+
+Author: Nicholas Westly, Sergei Borja
+Date Created: 2023-10-02
+-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/off_white"
+    android:padding="20dp"
+    tools:context=".LoginPage">
+
+    <!--Logo-->
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:contentDescription="@string/logo"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.098" />
+
+    <!--Username and Password Fields-->
+    <LinearLayout
+        android:id="@+id/loginFieldLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/noAccountLayout"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogo">
+
+        <!--Username-->
+        <TextView
+            android:id="@+id/txtUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/usernameInput"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!--Username Input Layout-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutEmployeeId"
+            style="@style/ThemeOverlay.App.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Username Input-->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtInputEmployeeId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:padding="12dp"
+                tools:ignore="VisualLintTextFieldSize,SpeakableTextPresentCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Password-->
+        <TextView
+            android:id="@+id/txtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/passwordInput"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!--Password Layout-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutPassword"
+            style="@style/ThemeOverlay.App.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true">
+
+            <!--Password Input-->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtInputPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                tools:ignore="VisualLintTextFieldSize,SpeakableTextPresentCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Input Errors-->
+        <TextView
+            android:id="@+id/txtWarning"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <!--Login Button-->
+        <Button
+            android:id="@+id/btnLogin"
+            style="@style/ThemeOverlay.App.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="20dp"
+            android:enabled="true"
+            android:text="@string/login"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="VisualLintButtonSize,TextContrastCheck" />
+
+    </LinearLayout>
+
+    <!--Bottom No Account and Forgot Password Text-->
+    <LinearLayout
+        android:id="@+id/noAccountLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <!--No Account Text-->
+        <TextView
+            android:id="@+id/txtAccountInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="@string/noAccount"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <!--Contact Manager Text-->
+        <TextView
+            android:id="@+id/txtContactManager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="@string/contactManager"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

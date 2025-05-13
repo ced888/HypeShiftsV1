@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description:
+The custom theme for the scrollbar.
+
+Author: Sergei Borja
+Date Created: 2023-10-30
+-->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#CC232323" />
+    <corners android:radius="500dp" />
+</shape>

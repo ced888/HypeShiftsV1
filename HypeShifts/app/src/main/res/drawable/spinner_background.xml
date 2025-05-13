@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description:
+The dropdown arrow that is surrounded by a circular background for spinners.
+
+Author: Sergei Borja
+Date Created: 2023-10-30
+-->
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="@color/white" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+    <item
+        android:width="30dp"
+        android:height="24dp"
+        android:drawable="@drawable/baseline_arrow_drop_down_24"
+        android:gravity="end|center_vertical"
+        android:right="10dp"></item>
+</layer-list>

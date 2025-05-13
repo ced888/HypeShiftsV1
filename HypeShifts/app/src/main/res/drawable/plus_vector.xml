@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description:
+Vector for a plus.
+
+Author: Sergei Borja
+Date Created: 2023-10-30
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="21dp"
+    android:height="22dp"
+    android:viewportWidth="21"
+    android:viewportHeight="22">
+    <path
+        android:fillColor="@color/black"
+        android:pathData="M7.73,21.513V0.87H12.949V21.513H7.73ZM0.018,13.801V8.582H20.661V13.801H0.018Z" />
+</vector>

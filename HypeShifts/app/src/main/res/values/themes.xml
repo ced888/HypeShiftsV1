@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description: The theme for the entire app.
+
+Author: Sergei Borja
+Date Created: 2023-10-02
+-->
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/green</item>
+
+        <!--Navigation Bar-->
+        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
+
+        <!--Text Input-->
+        <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>
+        <item name="android:textColorHighlight">@color/lightGreen</item>
+
+        <!--Buttons-->
+        <item name="borderlessButtonStyle">@style/Widget.App.Button.TextButton</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.App.Button.OutlinedButton</item>
+        <item name="materialButtonStyle">@style/Widget.App.Button</item>
+
+        <!--Family Font-->
+        <item name="fontFamily">@font/noto_sans</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:letterSpacing">0.02</item>
+
+        <!--Status Bar-->
+        <item name="android:statusBarColor">@color/darkerBlack</item>
+
+        <!--AppBar-->
+        <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
+    </style>
+
+    <!--Navigation Bar-->
+    <style name="Widget.App.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
+    </style>
+
+    <style name="ThemeOverlay.App.BottomNavigationView" parent="">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorSurface">@color/black</item>
+        <item name="colorOnSurfaceVariant">@color/off_white</item>
+        <item name="colorOnSurface">@color/off_white</item>
+        <item name="itemActiveIndicatorStyle">
+            @style/Widget.Material3.BottomNavigationView.ActiveIndicator
+        </item>
+    </style>
+
+    <!--Navigation Bar - Active Indicator-->
+    <style name="Widget.Material3.BottomNavigationView.ActiveIndicator" parent="">
+        <item name="android:color">@color/off_white</item>
+        <item name="android:width">64dp</item>
+        <item name="android:height">32dp</item>
+        <item name="shapeAppearance">
+            @style/ShapeAppearance.Material3.NavigationBarView.ActiveIndicator
+        </item>
+    </style>
+
+    <style name="Theme.MyApplication" parent="Base.Theme.MyApplication" />
+
+    <!--Text Fields-->
+    <style name="Widget.App.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextInputLayout</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.SmallComponent</item>
+    </style>
+
+    <style name="ThemeOverlay.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textSize">14sp</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxCornerRadiusTopStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+        <item name="boxStrokeColor">@color/text_input_layout_stroke_color</item>
+        <item name="cursorColor">@color/black</item>
+        <item name="hintEnabled">false</item>
+        <item name="editTextStyle">@style/Widget.Material3.TextInputEditText.OutlinedBox</item>
+    </style>
+
+    <!--Dropdown Menu-->
+    <style name="SpinnerStyle" parent="Widget.AppCompat.Spinner">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/spinner_background</item>
+        <item name="android:popupBackground">@color/white</item>
+        <item name="colorControlNormal">@color/black</item>
+    </style>
+
+    <!--Button-->
+    <style name="Widget.App.Button.TextButton" parent="Widget.Material3.Button.TextButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.Button.TextButton</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Button</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.SmallComponent</item>
+    </style>
+
+    <style name="Widget.App.Button.OutlinedButton" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.Button.TextButton</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Button</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.SmallComponent</item>
+    </style>
+
+    <style name="Widget.App.Button" parent="Widget.Material3.Button">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Button</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.SmallComponent</item>
+    </style>
+
+    <!--Text Button-->
+    <style name="ThemeOverlay.App.Button.TextButton" parent="ThemeOverlay.Material3.Button.TextButton">
+        <item name="colorOnContainer">@color/black</item>
+    </style>
+
+    <!--Normal Button-->
+    <style name="ThemeOverlay.App.Button" parent="ThemeOverlay.Material3.Button">
+        <item name="android:paddingHorizontal">20dp</item>
+        <item name="android:paddingVertical">4dp</item>
+        <item name="colorContainer">@color/green</item>
+        <item name="colorOnContainer">@color/off_white</item>
+        <item name="textAllCaps">false</item>
+        <item name="shapeAppearanceOverlay">@style/CustomButtonShapeAppearance</item>
+    </style>
+
+    <style name="CustomButtonShapeAppearance" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <!--App Bar-->
+    <style name="Widget.App.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Toolbar</item>
+        <item name="titleTextAppearance">@style/TextAppearance.Material3.TitleLarge</item>
+        <item name="subtitleTextAppearance">@style/TextAppearance.Material3.TitleMedium</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Toolbar" parent="">
+        <item name="titleTextColor">@color/off_white</item>
+        <item name="colorSurface">@color/black</item>
+        <item name="actionMenuTextColor">@color/off_white</item>
+        <item name="actionMenuTextAppearance">@style/MyActionMenuTextAppearance</item>
+        <item name="navigationIconTint">@color/off_white</item>
+        <item name="iconTint">@color/off_white</item>
+        <item name="titleCentered">true</item>
+    </style>
+
+    <style name="TextAppearance.Material3.TitleLarge" parent="">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="MyActionMenuTextAppearance" parent="">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+</resources>

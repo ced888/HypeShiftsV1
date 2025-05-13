@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description:
+A list of toggle of the different employees that are working on that day.
+
+Author: Cedric De Leon, Nicholas Westly, Sergei Borja.
+Date Created: 2023-11-04
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/off_white"
+    android:orientation="vertical"
+    tools:context=".EmployeeProfileActivity">
+
+    <!--Top App Bar-->
+    <com.google.android.material.appbar.AppBarLayout
+        style="@style/Widget.App.Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <!--Menu-->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topBarEditShifts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:menu="@menu/top_app_bar_save"
+            app:navigationIcon="@drawable/baseline_arrow_back_24" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!--Scroll Container-->
+    <ScrollView
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".CreateShift">
+
+        <!--Activity Container-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:context=".HomePage">
+
+            <!--Shifts Container-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="vertical"
+                tools:ignore="UselessParent">
+
+                <!--Current Date Text-->
+                <TextView
+                    android:id="@+id/txtCurrentDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <!--Employees Available For Text-->
+                <TextView
+                    android:id="@+id/txtStatusBarReactive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:text="@string/employeeAvailableTitle"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!--Weekend-->
+
+                <!--Weekend Container (Visibility Default = "gone")-->
+                <LinearLayout
+                    android:id="@+id/layoutWeekendShiftsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <!--Full Shifts Container-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!--Full Shifts Text-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:paddingEnd="5dp"
+                            android:text="@string/fullShift"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlSymmetry" />
+
+                        <!--Limit Text-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="@string/minThreeLabel"
+                            android:textSize="10sp"
+                            tools:ignore="SmallSp" />
+                    </LinearLayout>
+
+                    <!--Full Shifts Time-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:includeFontPadding="false"
+                        android:text="@string/fullShiftTime" />
+
+                    <!--Full Shifts Selected List-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/FullShiftSelected"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <!--No Scheduled Shifts Morning-->
+                    <LinearLayout
+                        android:id="@+id/noFullShiftsLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_background"
+                        android:backgroundTint="@color/green"
+                        android:orientation="vertical"
+                        android:padding="15dp">
+
+                        <!--No Shifts Full Shifts-->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/noScheduledShifts"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!--Warning Text Full Shifts-->
+                    <TextView
+                        android:id="@+id/fullWarningTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/red"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <!--Available Employees List-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:paddingEnd="5dp"
+                        android:text="@string/availableEmployeesLabel"
+                        android:textSize="16sp"
+                        tools:ignore="RtlSymmetry" />
+
+                    <!--Full Shifts Unselected List-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/FullShiftUnselected"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp" />
+
+                    <!--No Scheduled Shifts Full-->
+                    <LinearLayout
+                        android:id="@+id/noFullEmployeesLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_background"
+                        android:backgroundTint="@color/black"
+                        android:orientation="vertical"
+                        android:padding="15dp">
+
+                        <!--No Employees Full Shifts-->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/noScheduledEmployees"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--End of Weekend Container-->
+
+                <!--Weekday-->
+
+                <!--Weekday Container (Visibility Default = "visible")-->
+                <LinearLayout
+                    android:id="@+id/layoutWeekdayShiftsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <!--Morning Shifts Container-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!--Morning Shifts Text-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:paddingEnd="5dp"
+                            android:text="@string/morningShiftLabel"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlSymmetry" />
+
+                        <!--Limit Text-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="@string/minTwoLabel"
+                            android:textSize="10sp"
+                            tools:ignore="SmallSp" />
+                    </LinearLayout>
+
+                    <!--Morning Shifts Time-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:includeFontPadding="false"
+                        android:text="@string/morningShiftTime" />
+
+                    <!--Morning Shifts Selected List-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/MorningShiftSelected"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <!--No Scheduled Shifts Morning-->
+                    <LinearLayout
+                        android:id="@+id/noMorningShiftsLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_background"
+                        android:backgroundTint="@color/green"
+                        android:orientation="vertical"
+                        android:padding="15dp">
+
+                        <!--No Shifts Morning Shifts-->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/noScheduledShifts"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!--Warning Text Morning Shifts-->
+                    <TextView
+                        android:id="@+id/morningWarningTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/red"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <!--Available Employees Text-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="15dp"
+                        android:includeFontPadding="false"
+                        android:text="@string/availableEmployeesLabel"
+                        android:textSize="16sp"
+                        tools:ignore="RtlSymmetry" />
+
+                    <!--Morning Shifts Unselected List-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/MorningShiftUnselected"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <!--No Scheduled Shifts Morning-->
+                    <LinearLayout
+                        android:id="@+id/noMorningEmployeesLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_background"
+                        android:backgroundTint="@color/black"
+                        android:orientation="vertical"
+                        android:padding="15dp">
+
+                        <!--No Employee Morning Shifts-->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/noScheduledEmployees"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!--Afternoon Shifts Container-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal">
+
+                        <!--Afternoon Shifts Text-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:paddingEnd="5dp"
+                            android:text="@string/afternoonShift"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlSymmetry" />
+
+                        <!--Limit Text-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="@string/minTwoLabel"
+                            android:textSize="10sp"
+                            tools:ignore="SmallSp" />
+                    </LinearLayout>
+
+                    <!--Afternoon Shifts Time-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:includeFontPadding="false"
+                        android:text="@string/afternoonShiftTime" />
+
+                    <!--Afternoon Shifts Selected List-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/AfternoonShiftSelected"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <!--No Scheduled Shifts Afternoon-->
+                    <LinearLayout
+                        android:id="@+id/noAfternoonShiftsLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_background"
+                        android:backgroundTint="@color/green"
+                        android:orientation="vertical"
+                        android:padding="15dp">
+
+                        <!--No Shifts Morning Shifts-->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/noScheduledShifts"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!--Warning Text Afternoon Shifts-->
+                    <TextView
+                        android:id="@+id/afternoonWarningTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/red"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <!--Available Employees Text-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="15dp"
+                        android:includeFontPadding="false"
+                        android:text="@string/availableEmployeesLabel"
+                        android:textSize="16sp" />
+
+                    <!--Afternoon Shifts Unselected List-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/AfternoonShiftUnselected"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <!--No Scheduled Shifts Afternoon-->
+                    <LinearLayout
+                        android:id="@+id/noAfternoonEmployeesLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_background"
+                        android:backgroundTint="@color/black"
+                        android:orientation="vertical"
+                        android:padding="15dp">
+
+                        <!--No Employees Afternoon Shifts-->
+                        <TextView
+                            android:layout_width="368dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/noScheduledEmployees"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!--Evening Shifts Container-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal">
+
+                        <!--Evening Shifts Text-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:paddingEnd="5dp"
+                            android:text="@string/eveningShiftLabel"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlSymmetry" />
+
+                        <!--Limit Container-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="@string/minTwoLabel"
+                            android:textSize="10sp"
+                            tools:ignore="SmallSp" />
+
+                    </LinearLayout>
+
+                    <!--Evening Shifts Time-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:includeFontPadding="false"
+                        android:text="@string/eveningShiftTime" />
+
+                    <!--Evening Shifts Selected List-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/EveningShiftSelected"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <!--No Scheduled Shifts Morning-->
+                    <LinearLayout
+                        android:id="@+id/noEveningShiftsLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_background"
+                        android:backgroundTint="@color/green"
+                        android:orientation="vertical"
+                        android:padding="15dp">
+
+                        <!--No Shifts Evening Shifts-->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/noScheduledShifts"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!--Warning Text Evening Shifts-->
+                    <TextView
+                        android:id="@+id/eveningWarningTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/red"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <!--Available Employees-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="15dp"
+                        android:includeFontPadding="false"
+                        android:text="@string/availableEmployeesLabel"
+                        android:textSize="16sp" />
+
+                    <!--Evening Shifts Unselected List-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/EveningShiftUnselected"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <!--No Scheduled Shifts Morning-->
+                    <LinearLayout
+                        android:id="@+id/noEveningEmployeesLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_background"
+                        android:backgroundTint="@color/black"
+                        android:orientation="vertical"
+                        android:padding="15dp">
+
+                        <!--No Employees Evening Shifts-->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/noScheduledEmployees"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

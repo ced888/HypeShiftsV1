@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description:
+A cell to display the shift of an employee and the type of employee.
+
+Author: Nicholas Westly, Sergei Borja
+Date Created: 2023-11-04
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentShiftView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true">
+
+    <!--Container-->
+    <LinearLayout
+        android:id="@+id/employeeShiftContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/rounded_background"
+        android:backgroundTint="@color/black"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="15dp"
+        tools:ignore="UselessParent">
+
+        <!--Profile Picture-->
+        <ImageView
+            android:id="@+id/imgProfilePic"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/circle_mask"
+            android:backgroundTint="@color/off_white"
+            android:contentDescription="@string/profilePicDescription"
+            android:padding="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_profile_picture"
+            app:tint="@color/black" />
+
+        <!--Text Layout-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!--Employee Name Text-->
+            <TextView
+                android:id="@+id/txtEmployeeName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/off_white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <!--Training Placeholder Layout-->
+            <LinearLayout
+                android:id="@+id/trainingPlaceHolderLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_background"
+                android:backgroundTint="@color/green"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <!--Training Placeholder Text-->
+                <TextView
+                    android:id="@+id/trainingPlaceHolder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:textColor="@color/off_white"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    tools:ignore="SmallSp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--Remove Button-->
+        <TextView
+            android:id="@+id/txtRemove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_background"
+            android:backgroundTint="@color/black"
+            android:enabled="false"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="6dp"
+            android:text="@string/remove"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+    </LinearLayout>
+</LinearLayout>

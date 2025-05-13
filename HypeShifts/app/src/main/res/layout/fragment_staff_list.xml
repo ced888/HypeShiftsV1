@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description:
+Displays the staff list in list view by default and has the option of clicking each individual
+to access their profile.
+
+Author: Sergei Borja, Osman Osman
+Date Created: 2023-10-02
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/off_white"
+    android:orientation="vertical"
+    tools:context=".EmployeeProfileActivity">
+
+    <!--Top App Bar-->
+    <com.google.android.material.appbar.AppBarLayout
+        style="@style/Widget.App.Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <!--Menu-->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:title="Staff List" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!--Activity Container-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".HomePage">
+
+        <!--Current User's Profile Container-->
+        <LinearLayout
+            android:id="@+id/linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Creates Columns-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="20dp"
+                tools:ignore="UselessParent">
+
+                <!--Profile Image Column-->
+                <ImageView
+                    android:id="@+id/staffProfileImage"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/circle_mask"
+                    android:backgroundTint="@color/black"
+                    android:contentDescription="@string/profilePicDescription"
+                    android:padding="4dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/default_profile_picture"
+                    app:tint="@color/off_white" />
+
+                <!--User's Name Column-->
+                <TextView
+                    android:id="@+id/nameTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--Divider-->
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:layout_below="@id/linear_layout"
+            android:background="@color/black" />
+
+        <!--List of Employees-->
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/divider"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:scrollbarThumbVertical="@drawable/custom_scrollbar" />
+
+        <!--Bottom Add Employee Button-->
+        <TextView
+            android:id="@+id/emptyEmployeeListTxt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/divider"
+            android:gravity="center"
+            android:padding="40dp"
+            android:text="@string/noEmployeeStaffList"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <!--Add Employee Button-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/addBtn"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/green"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="0dp">
+
+            <!--Add Icon-->
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"
+                android:contentDescription="@string/profilePicDescription"
+                android:src="@drawable/plus_vector"
+                app:tint="@color/off_white" />
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</LinearLayout>

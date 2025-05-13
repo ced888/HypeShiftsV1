@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description:
+The display for adding new employees along with their personal, contact and work details.
+
+Author: Osman Osman, Sergei Borja
+Date Created: 2023-10-11
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/off_white"
+    android:orientation="vertical"
+    tools:context=".AddNewEmployeeActivity">
+
+    <!--Top App Bar-->
+    <com.google.android.material.appbar.AppBarLayout
+        style="@style/Widget.App.Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <!--Menu-->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBarSaveAddEmployee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:menu="@menu/top_app_bar_save"
+            app:navigationIcon="@drawable/baseline_arrow_back_24" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!--Scroll Container-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!--Activity Container-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--Profile Picture-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/profilePictureLabel"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <!--Add Profile Picture-->
+            <ImageView
+                android:id="@+id/imgAddProfilePic"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:background="@drawable/circle_mask"
+                android:backgroundTint="@color/black"
+                android:contentDescription="@string/profilePicDescription"
+                android:padding="50dp"
+                android:src="@drawable/plus_vector"
+                app:tint="@color/off_white" />
+
+            <!--Add New Employee Text-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp"
+                android:text="@string/addNewEmployeeTitle"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!--Divider-->
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/black" />
+
+            <!--Employee Detail Fields Group-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!--Personal Detail Container-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="20dp"
+                    android:background="@drawable/rounded_background"
+                    android:backgroundTint="@color/black"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="20dp">
+
+                    <!--Personal Details Title-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/personalDetailsTitle"
+                        android:textColor="@color/green"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--First Name-->
+                    <TextView
+                        android:id="@+id/txtFirstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/firstNameLabel"
+                        android:textColor="@color/off_white"
+                        android:textStyle="bold" />
+
+                    <!--First Name Field Layout-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/firstNameLayout"
+                        style="@style/ThemeOverlay.App.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp">
+
+                        <!--First Name Field Text Input-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/firstNameET"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/firstNameHint"
+                            android:inputType="text"
+                            android:padding="12dp"
+                            tools:ignore="VisualLintTextFieldSize" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Last Name-->
+                    <TextView
+                        android:id="@+id/txtLastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lastNameLabel"
+                        android:textColor="@color/off_white"
+                        android:textStyle="bold" />
+
+                    <!--Last Name Field Layout-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/lastNameLayout"
+                        style="@style/ThemeOverlay.App.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <!--Last Name Field Text Input-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/lastNameET"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="10dp"
+                            android:hint="@string/lastNameHint"
+                            android:inputType="text"
+                            android:padding="12dp"
+                            tools:ignore="VisualLintTextFieldSize" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Gender-->
+                    <TextView
+                        android:id="@+id/txtGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:text="@string/genderLabel"
+                        android:textColor="@color/off_white"
+                        android:textStyle="bold" />
+
+                    <!--Gender Field Layout-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/genderLayout"
+                        style="@style/ThemeOverlay.App.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp">
+
+                        <!--Gender Field Select-->
+                        <Spinner
+                            android:id="@+id/genderSp"
+                            style="@style/SpinnerStyle"
+                            android:layout_height="48dp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Date of Birth-->
+                    <TextView
+                        android:id="@+id/txtDob"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dateOfBirthLabel"
+                        android:textColor="@color/off_white"
+                        android:textStyle="bold" />
+
+                    <!--Date Field Layout-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <!--Year Field Layout-->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/dobYearLayout"
+                            style="@style/ThemeOverlay.App.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1">
+
+                            <!--Year Field Text Input-->
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/dobYearET"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/yearHint"
+                                android:inputType="text"
+                                android:maxLength="4"
+                                android:padding="12dp"
+                                tools:ignore="VisualLintTextFieldSize,DuplicateSpeakableTextCheck" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!--Month Field Layout-->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/dobMonthLayout"
+                            style="@style/ThemeOverlay.App.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1">
+
+                            <!--Month Field Text Input-->
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/dobMonthET"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/monthHint"
+                                android:inputType="text"
+                                android:maxLength="2"
+                                android:padding="12dp"
+                                tools:ignore="VisualLintTextFieldSize,DuplicateSpeakableTextCheck" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!--Day Field Layout-->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/dobDayLayout"
+                            style="@style/ThemeOverlay.App.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1">
+
+                            <!--Day Field Text Input-->
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/dobDayET"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/dayHint"
+                                android:inputType="text"
+                                android:maxLength="2"
+                                android:padding="12dp"
+                                tools:ignore="VisualLintTextFieldSize,DuplicateSpeakableTextCheck" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <!--Address-->
+                    <TextView
+                        android:id="@+id/txtAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/addressLabel"
+                        android:textColor="@color/off_white"
+                        android:textStyle="bold" />
+
+                    <!--Address Field Layout-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/addressLayout"
+                        style="@style/ThemeOverlay.App.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <!--Address Field Text Input-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/addressET"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:hint="@string/addressHint"
+                            android:inputType="textPostalAddress"
+                            android:padding="12dp"
+                            tools:ignore="VisualLintTextFieldSize" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <!--Contact Detail Container-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="20dp"
+                    android:background="@drawable/rounded_background"
+                    android:backgroundTint="@color/black"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="20dp">
+
+                    <!--Contact Detail Title-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/contactDetailsTitle"
+                        android:textColor="@color/green"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Home Number-->
+                    <TextView
+                        android:id="@+id/txtHomeNum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/homePhoneLabel"
+                        android:textColor="@color/off_white"
+                        android:textStyle="bold" />
+
+                    <!--Home Number Field Layout-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/homeNumLayout"
+                        style="@style/ThemeOverlay.App.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp">
+
+                        <!--Home Number Field Text Input-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/homeNumET"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:hint="@string/phoneNumberHint"
+                            android:inputType="number"
+                            android:maxLength="10"
+                            android:padding="12dp"
+                            tools:ignore="VisualLintTextFieldSize,DuplicateSpeakableTextCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Mobile Number-->
+                    <TextView
+                        android:id="@+id/txtMobileNum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mobilePhoneLabel"
+                        android:textColor="@color/off_white"
+                        android:textStyle="bold" />
+
+                    <!--Mobile Number Field Layout-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/mobileNumLayout"
+                        style="@style/ThemeOverlay.App.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <!--Mobile Number Field Text Input-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/mobileNumET"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:hint="@string/phoneNumberHint"
+                            android:inputType="number"
+                            android:maxLength="10"
+                            android:padding="12dp"
+                            tools:ignore="VisualLintTextFieldSize" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Email-->
+                    <TextView
+                        android:id="@+id/txtEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/emailLabel"
+                        android:textColor="@color/off_white"
+                        android:textStyle="bold" />
+
+                    <!--Email Field Layout-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/emailLayout"
+                        style="@style/ThemeOverlay.App.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp">
+
+                        <!--Email Field Text Input-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/emailET"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:hint="@string/emailHint"
+                            android:inputType="text|textEmailAddress"
+                            android:padding="12dp"
+                            tools:ignore="VisualLintTextFieldSize" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Contact Preference-->
+                    <TextView
+                        android:id="@+id/txtContactPref"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:text="@string/contactPreferenceLabel"
+                        android:textColor="@color/off_white"
+                        android:textStyle="bold" />
+
+                    <!--Contact Preference Field Layout-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/contactPrefLayout"
+                        style="@style/ThemeOverlay.App.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <!--Contact Preference Field Select-->
+                        <Spinner
+                            android:id="@+id/contactPrefSp"
+                            style="@style/SpinnerStyle"
+                            android:layout_height="48dp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <!--Work Detail Container-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="20dp"
+                    android:background="@drawable/rounded_background"
+                    android:backgroundTint="@color/black"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="20dp">
+
+                    <!--Work Detail Title-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/workDetailsTitle"
+                        android:textColor="@color/green"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!--Start Date-->
+                    <TextView
+                        android:id="@+id/txtStart"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/startDateLabel"
+                        android:textColor="@color/off_white"
+                        android:textStyle="bold" />
+
+                    <!--Date Field Layout-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <!--Year Field Layout-->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/startYearLayout"
+                            style="@style/ThemeOverlay.App.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1">
+
+                            <!--Year Field Text Input-->
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/startYearET"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/yearHint"
+                                android:inputType="text"
+                                android:maxLength="4"
+                                android:padding="12dp"
+                                tools:ignore="VisualLintTextFieldSize" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!--Month Field Layout-->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/startMonthLayout"
+                            style="@style/ThemeOverlay.App.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1">
+
+                            <!--Month Field Text Input-->
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/startMonthET"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/monthHint"
+                                android:inputType="text"
+                                android:maxLength="2"
+                                android:padding="12dp"
+                                tools:ignore="VisualLintTextFieldSize" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!--Day Field Layout-->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/startDayLayout"
+                            style="@style/ThemeOverlay.App.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1">
+
+                            <!--Day Field Text Input-->
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/startDayET"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/dayHint"
+                                android:inputType="text"
+                                android:maxLength="2"
+                                android:padding="12dp"
+                                tools:ignore="VisualLintTextFieldSize" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <!--Store Position-->
+                    <TextView
+                        android:id="@+id/txtStorePosition"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:text="@string/storePositionLabel"
+                        android:textColor="@color/off_white"
+                        android:textStyle="bold" />
+
+                    <!--Store Position Field-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/positionLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp">
+
+                        <!--Store Position Field Select-->
+                        <Spinner
+                            android:id="@+id/roleSp"
+                            style="@style/SpinnerStyle"
+                            android:layout_height="48dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description:
+Be able to edit the availability of the employee.
+
+Author: Sergei Borja
+Date Created: 2023-11-17
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/off_white"
+    android:orientation="vertical"
+    tools:context=".EmployeeProfileActivity">
+
+    <!--Top App Bar-->
+    <com.google.android.material.appbar.AppBarLayout
+        style="@style/Widget.App.Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <!--Menu-->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBarEditAvailability"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:menu="@menu/top_app_bar_save"
+            app:navigationIcon="@drawable/baseline_arrow_back_24" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!--Scroll Container-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!--Activity Container-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--Profile Image-->
+            <ImageView
+                android:id="@+id/profileImageDetailed"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/circle_mask"
+                android:backgroundTint="@color/black"
+                android:contentDescription="@string/profilePicDescription"
+                android:padding="10dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/default_profile_picture"
+                app:tint="@color/off_white" />
+
+            <!-- Editing Message -->
+            <TextView
+                android:id="@+id/editMsgTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="@string/editingAvailabilityTitle"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                tools:ignore="SmallSp" />
+
+            <!--Employee Name-->
+            <TextView
+                android:id="@+id/nameTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!--Divider-->
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/black" />
+
+            <!--Availability Container-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="20dp"
+                android:background="@drawable/rounded_background"
+                android:backgroundTint="@color/black"
+                android:orientation="vertical"
+                android:paddingHorizontal="25dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="20dp">
+
+                <!--Edit Availability Title-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/editAvailabilityTitle"
+                    android:textColor="@color/green"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!--Sunday-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:text="@string/sunLabel"
+                    android:textColor="@color/off_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!--Sunday Full Button-->
+                <Button
+                    android:id="@+id/btnSunFull"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/grey"
+                    android:text="@string/fullShift"
+                    android:textStyle="bold" />
+
+                <!--Monday Text-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/monLabel"
+                    android:textColor="@color/off_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!--Monday Morning Button-->
+                <Button
+                    android:id="@+id/btnMonMor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/grey"
+                    android:text="@string/morningShift"
+                    android:textStyle="bold" />
+
+                <!--Monday Afternoon Button-->
+                <Button
+                    android:id="@+id/btnMonAft"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/grey"
+                    android:text="@string/afternoonShift"
+                    android:textStyle="bold" />
+
+                <!--Monday Evening Button-->
+                <Button
+                    android:id="@+id/btnMonEve"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/grey"
+                    android:text="@string/eveningShift"
+                    android:textStyle="bold" />
+
+                <!--Tuesday Text-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/tueLabel"
+                    android:textColor="@color/off_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!--Tuesday Morning Button-->
+                <Button
+                    android:id="@+id/btnTueMor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/grey"
+                    android:text="@string/morningShift"
+                    android:textStyle="bold" />
+
+                <!--Tuesday Afternoon Button-->
+                <Button
+                    android:id="@+id/btnTueAft"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/grey"
+                    android:text="@string/afternoonShift"
+                    android:textStyle="bold" />
+
+                <!--Tuesday Evening Button-->
+                <Button
+                    android:id="@+id/btnTueEve"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/grey"
+                    android:text="@string/eveningShift"
+                    android:textStyle="bold" />
+
+                <!--Wednesday Text-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/wedLabel"
+                    android:textColor="@color/off_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!--Wednesday Morning Button-->
+                <Button
+                    android:id="@+id/btnWedMor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/grey"
+                    android:text="@string/morningShift"
+                    android:textStyle="bold" />
+
+                <!--Wednesday Afternoon Button-->
+                <Button
+                    android:id="@+id/btnWedAft"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/grey"
+                    android:text="@string/afternoonShift"
+                    android:textStyle="bold" />
+
+                <!--Wednesday Evening Button-->
+                <Button
+                    android:id="@+id/btnWedEve"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/grey"
+                    android:text="@string/eveningShift"
+                    android:textStyle="bold" />
+
+                <!--Thursday Text-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/thuLabel"
+                    android:textColor="@color/off_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!--Thursday Morning Button-->
+                <Button
+                    android:id="@+id/btnThuMor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/grey"
+                    android:text="@string/morningShift"
+                    android:textStyle="bold" />
+
+                <!--Thursday Afternoon Button-->
+                <Button
+                    android:id="@+id/btnThuAft"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/grey"
+                    android:text="@string/afternoonShift"
+                    android:textStyle="bold" />
+
+                <!--Thursday Evening Button-->
+                <Button
+                    android:id="@+id/btnThuEve"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/grey"
+                    android:text="@string/eveningShift"
+                    android:textStyle="bold" />
+
+                <!--Friday Text-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/friLabel"
+                    android:textColor="@color/off_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!--Friday Morning Button-->
+                <Button
+                    android:id="@+id/btnFriMor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/grey"
+                    android:text="@string/morningShift"
+                    android:textStyle="bold" />
+
+                <!--Friday Afternoon Button-->
+                <Button
+                    android:id="@+id/btnFriAft"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/grey"
+                    android:text="@string/afternoonShift"
+                    android:textStyle="bold" />
+
+                <!--Friday Evening Button-->
+                <Button
+                    android:id="@+id/btnFriEve"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/grey"
+                    android:text="@string/eveningShift"
+                    android:textStyle="bold" />
+
+                <!--Saturday Text-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/satLabel"
+                    android:textColor="@color/off_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!--Saturday Full Button-->
+                <Button
+                    android:id="@+id/btnSatFull"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/grey"
+                    android:text="@string/fullShift"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!--Delete Employee Button Row-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="horizontal">
+
+                <!--Delete Employee Button-->
+                <Button
+                    android:id="@+id/btnResetAvailability"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/red"
+                    android:text="@string/reset"
+                    android:textColor="@color/off_white"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

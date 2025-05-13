@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description:
+This XML layout defines the items for a BottomNavigationView menu. Each item represents
+a distinct section or feature of the application:
+
+1. Home Page: The main landing or dashboard of the application.
+2. Calendar: Provides access to a calendar section of the app.
+3. Notification: Directs users to a section where they can view notifications or alerts.
+4. Staff List: Directs users to a directory or list of staff members.
+
+Author: Sergei Borja
+Date Created: 2023-10-06
+-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/HomePage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/home_vector"
+        android:title="@string/btmNavHome" />
+
+    <item
+        android:id="@+id/Calender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/calendar_vector"
+        android:title="@string/btmNavCalendar" />
+    <item
+        android:id="@+id/StaffList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/staff_list_vector"
+        android:title="@string/btmNavStaffList" />
+
+</menu>

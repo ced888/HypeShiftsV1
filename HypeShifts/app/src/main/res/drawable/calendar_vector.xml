@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Description:
+Vector for the Calendar.
+
+Author: Sergei Borja
+Date Created: 2023-10-30
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="54dp"
+    android:height="54dp"
+    android:viewportWidth="54"
+    android:viewportHeight="54">
+    <path
+        android:fillColor="#000000"
+        android:fillType="evenOdd"
+        android:pathData="M45.667,8.333H43V3C43,1.527 41.806,0.333 40.333,0.333C38.861,0.333 37.667,1.527 37.667,3V8.333H16.333V3C16.333,1.527 15.139,0.333 13.667,0.333C12.194,0.333 11,1.527 11,3V8.333H8.333C3.915,8.333 0.333,11.915 0.333,16.333V45.667C0.333,50.085 3.915,53.667 8.333,53.667H45.667C50.085,53.667 53.667,50.085 53.667,45.667V16.333C53.667,11.915 50.085,8.333 45.667,8.333ZM5.667,16.333C5.667,14.861 6.861,13.667 8.333,13.667H45.667C47.139,13.667 48.333,14.861 48.333,16.333V19H5.667V16.333ZM45.667,48.333C47.139,48.333 48.333,47.139 48.333,45.667V24.333H5.667V45.667C5.667,47.139 6.861,48.333 8.333,48.333H45.667Z" />
+</vector>
